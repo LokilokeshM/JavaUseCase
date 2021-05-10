@@ -17,8 +17,7 @@ public class Utility extends MyFileReaderImpl{
 	public void AddData() throws IOException
 	{
 		Date dt = new Date();
-//		Header h = new Header(dt, null, 0, null, 0);
-//		Content c = new Content(null, null, dt, null, null, null, null);
+
 		
 		List<Header> h = new ArrayList<Header>();
 		List<Content> c = new ArrayList<Content>();
@@ -44,8 +43,8 @@ public class Utility extends MyFileReaderImpl{
 		c.add(new Content("FrontShieldGlass", "1234545890987654545", dt, "12022020YCarSheild001212121", "y", "red",(float) 123.0));
 		c.add(new Content("FrontShieldGlass", "1234545890987654545", dt, "12022020YCarSheild001212121", "y", "red",(float) 123.0));
 		c.add(new Content("FrontShieldGlass", "1234545890987654545", dt, "12022020YCarSheild001212121", "y", "red",(float) 123.0));
-	
-		writeFile(h , c);
+			writeFile(h , c);
+
 	
 	}
 	

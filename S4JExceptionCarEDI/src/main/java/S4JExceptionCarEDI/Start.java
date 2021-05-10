@@ -8,7 +8,8 @@ public class Start {
 
 		
 		System.out.println("Create the File");
-		new MyFileReaderImpl().CreateNewFile();
+		new MyFileReaderImpl();
+		MyFileReaderImpl.CreateNewFile();
 		
 		
 		System.out.println("It Will Display All Records");

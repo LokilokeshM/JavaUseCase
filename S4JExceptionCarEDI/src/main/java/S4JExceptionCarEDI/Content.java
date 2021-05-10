@@ -3,74 +3,74 @@ package S4JExceptionCarEDI;
 import java.util.Date;
 
 public class Content {
-	public String Category ;	
-	public String SKU ;
-	public Date DateofManufacturer;
-	public String ISFragile ;	
-	public String ModelNumber;
-	public String Color;
-	public Float CostStep;
+	public String category ;	
+	public String sKU ;
+	public Date dateofManufacturer;
+	public String iSFragile ;	
+	public String modelNumber;
+	public String color;
+	public Float costStep;
 
 	public Content( String category, String sKU, Date dateofManufacturer, String iSFragile, String modelNumber,
 			String color, Float costStep) {
 		super();
 		
-		Category = category;
-		SKU = sKU;
-		DateofManufacturer = dateofManufacturer;
-		ISFragile = iSFragile;
-		ModelNumber = modelNumber;
-		Color = color;
-		CostStep = costStep;
+		this.category = category;
+		this.sKU = sKU;
+		this.dateofManufacturer = dateofManufacturer;
+		this.iSFragile = iSFragile;
+		this.modelNumber = modelNumber;
+		this.color = color;
+		this.costStep = costStep;
 	}
 	
 	public String getCategory() {
-		return Category;
+		return category;
 	}
 	public void setCategory(String category) {
-		Category = category;
+		this.category = category;
 	}
 	public String getSKU() {
-		return SKU;
+		return sKU;
 	}
 	public void setSKU(String sKU) {
-		SKU = sKU;
+		this.sKU = sKU;
 	}
 	public Date getDateofManufacturer() {
-		return DateofManufacturer;
+		return dateofManufacturer;
 	}
 	public void setDateofManufacturer(Date dateofManufacturer) {
-		DateofManufacturer = dateofManufacturer;
+		this.dateofManufacturer = dateofManufacturer;
 	}
 	public String getISFragile() {
-		return ISFragile;
+		return iSFragile;
 	}
 	public void setISFragile(String iSFragile) {
-		ISFragile = iSFragile;
+		this.iSFragile = iSFragile;
 	}
 	public String getModelNumber() {
-		return ModelNumber;
+		return modelNumber;
 	}
 	public void setModelNumber(String modelNumber) {
-		ModelNumber = modelNumber;
+		this.modelNumber = modelNumber;
 	}
 	public String getColor() {
-		return Color;
+		return color;
 	}
 	public void setColor(String color) {
-		Color = color;
+		this.color = color;
 	}
 	public Float getCostStep() {
-		return CostStep;
+		return costStep;
 	}
 	public void setCostStep(Float costStep) {
-		CostStep = costStep;
+		this.costStep = costStep;
 	}
 	@Override
 	public String toString() {
-		return "Header [ Category=" + Category + ", SKU=" + SKU + ", DateofManufacturer="
-				+ DateofManufacturer + ", ISFragile=" + ISFragile + ", ModelNumber=" + ModelNumber + ", Color=" + Color
-				+ ", CostStep=" + CostStep + "]";
+		return "Header [ Category=" + category + ", SKU=" + sKU + ", DateofManufacturer="
+				+ dateofManufacturer + ", ISFragile=" + iSFragile + ", ModelNumber=" + modelNumber + ", Color=" + color
+				+ ", CostStep=" + costStep + "]";
 	}
 	
 

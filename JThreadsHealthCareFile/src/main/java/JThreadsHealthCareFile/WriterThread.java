@@ -37,8 +37,7 @@ public class WriterThread implements Runnable{
 //			writer.close();
 //		}
 	  public void run() {
-	    PrintWriter writer = null;
-	    
+	    PrintWriter writer = null;	    
 	    try {
 	    	List<Header> h = new Data().head();
 	    	List<Content> c = new Data().content();
@@ -70,8 +69,6 @@ public class WriterThread implements Runnable{
 	            }
 	            writer.println(buffer);
 	        }               
-
-
 	    } catch (FileNotFoundException e) {
 
 	        e.printStackTrace();

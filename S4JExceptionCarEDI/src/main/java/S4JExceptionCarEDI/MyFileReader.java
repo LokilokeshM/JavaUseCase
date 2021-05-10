@@ -4,10 +4,9 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public abstract class MyFileReader {
-	
-	
-	static boolean ValidateTheFile(String txt) throws IOException
+public class MyFileReader {
+
+	public static boolean ValidateTheFile(String txt) throws IOException
 	{
 		  FileInputStream fis = new FileInputStream(txt);
 	      FileDescriptor fd = null;
@@ -30,4 +29,5 @@ public abstract class MyFileReader {
 		return bool;
 			
 	}
+	
 }

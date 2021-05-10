@@ -1,24 +1,24 @@
-package S4JExceptionCarEDI;
+package JThreadsHealthCareFile;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URI;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MyFileReaderImpl extends MyFileReader{
+
+
+public class CommonFunction {
 	static String txt="";
 	static void CreateNewFile()
 	{
@@ -26,7 +26,7 @@ public class MyFileReaderImpl extends MyFileReader{
 		      File myObj = new File("file.txt");
 		      if (myObj.createNewFile()) {
 		        System.out.println("File created: " + myObj.getName());
-		        new Utility().AddData();
+		        
 		      } else {
 		        System.out.println("File already exists.");
 		        readFileIntoList();
@@ -87,15 +87,14 @@ public class MyFileReaderImpl extends MyFileReader{
 			
 		}
 		
-		
 	}
 	
-	public static void ConvertTxtToCsv() throws IOException
+	public static void ConvertTxtToCsv(String s) throws IOException
 	{
-		String[] val =txt.split(".");
+		String[] val =s.split(".");
 	    final Path path = Paths.get("path", "to", "folder");
-	    final Path txt1 = path.resolve(txt);
-	    final Path csv = path.resolve(val+".csv");
+	    final Path txt1 = path.resolve(s);
+	    final Path csv = path.resolve(val[0]+".csv");
 	    try (
 	    final Stream<String> lines = Files.lines(txt1);
 	    final PrintWriter pw = new PrintWriter(Files.newBufferedWriter(csv, StandardOpenOption.CREATE_NEW))) 
@@ -105,27 +104,50 @@ public class MyFileReaderImpl extends MyFileReader{
 	                forEach(pw::println);
 	    }
 	}
+	static boolean ValidateTheFile(String txt) throws IOException
+	{
+		  FileInputStream fis = new FileInputStream(txt);
+	      FileDescriptor fd = null;
+	      boolean bool = false;  
+	      try {  
+	         fd = fis.getFD();
+	         
+	         // tests file descriptor object's validity
+	         bool = fd.valid();
+	       
+	        
+	      } catch(Exception e) {
+	         // if any error occurs
+	         e.printStackTrace();
+	      } finally {
+	         // releases systems resources
+	         if(fis!=null)
+	            fis.close();   
+	      }
+		return bool;
+			
+	}
 	public void writeFile(List<Header> h ,List<Content> c) throws IOException
 	{
-		FileWriter writer = new FileWriter("file.txt"); 
-		int i=0;
-		for(Header hd: h) {
-		
-			writer.write("----"+hd.getDateTime()+"----"+hd.getFileSequence()+"----"
-			+hd.getManufacturerName()+"----"
-			+hd.getNumberofRecords()+"----"
-			+hd.getTotal()+"----"+System.lineSeparator());
-		}
-		for(Content cn:c)
-		{
-			writer.write(i+1 +"----"
-					+cn.getModelNumber() +"----"
-					+cn.getSKU()+"----"
-					+cn.getModelNumber()+"----"
-					+cn.getColor()+"----"
-					+cn.getCostStep()+"----"+System.lineSeparator());
-		}
-		writer.close();
+//		FileWriter writer = new FileWriter("file.txt"); 
+//		int i=0;
+//		for(Header hd: h) {
+//		
+//			writer.write("----"+hd.getDateTime()+"----"+hd.getFileSequence()+"----"
+//			+hd.getManufacturerName()+"----"
+//			+hd.getNumberofRecords()+"----"
+//			+hd.getTotal()+"----"+System.lineSeparator());
+//		}
+//		for(Content cn:c)
+//		{
+//			writer.write(i+1 +"----"
+//					+cn.getModelNumber() +"----"
+//					+cn.getSKU()+"----"
+//					+cn.getModelNumber()+"----"
+//					+cn.getColor()+"----"
+//					+cn.getCostStep()+"----"+System.lineSeparator());
+//		}
+//		writer.close();
 	}
 	public void display() throws IOException
 	{
@@ -144,10 +166,7 @@ public class MyFileReaderImpl extends MyFileReader{
 				count++;
 			}
 			System.out.println(count);
-			ConvertTxtToCsv();
+			ConvertTxtToCsv("file.txt");
 		}
-		
-		
-	}
-
+	}	
 }
