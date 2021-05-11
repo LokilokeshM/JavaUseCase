@@ -31,8 +31,7 @@ public class Report {
 			out.println("Enter The Count");
 			count= sc.nextInt();
 			out.println("Enter The Cost");
-			cost= sc.nextInt();
-			
+			cost= sc.nextInt();			
 			itemList.add(new item(i+1, category, description, count, cost));
 		}
 		ReportOperations ro = new ReportOperations();

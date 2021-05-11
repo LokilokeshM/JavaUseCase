@@ -15,6 +15,7 @@ public class item extends BaseClass{
 		this.count = count;
 		this.cost = cost;
 	}
+	
 	@Override
 	public String toString() {
 		return "item [id=" + id + ", category=" + category + ", description=" + description + ", count=" + count
